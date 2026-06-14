@@ -57,6 +57,10 @@ license: "CC BY"
 
 ![V Сольвеевский конгресс (1927) «Электроны и фотоны»](image/solvay.jpg){#fig-001 width=70%}
 
+{{< include ../project/markdown/01_exponential_groth/01_exponential_groth.qmd >}}
+
+{{< include ../project/markdown/02_exponential_groth/02_exponential_groth.qmd >}}
+
 # Выводы
 
 Здесь кратко описываются итоги проделанной работы.

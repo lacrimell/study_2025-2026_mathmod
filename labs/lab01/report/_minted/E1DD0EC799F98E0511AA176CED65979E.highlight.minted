@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{savefig}\PYG{p}{(}\PYG{n}{plotsdir}\PYG{p}{(}\PYG{n}{script\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}exponential\PYGZus{}growth\PYGZus{}α=}\PYG{l+s+si}{\PYGZdl{}α}\PYG{l+s}{.png\PYGZdq{}}\PYG{p}{))}
+\PYG{c}{\PYGZsh{} Анализ результатов}
+\end{MintedVerbatim}

@@ -1,0 +1,7 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{u\PYGZus{}final}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{(}\PYG{n}{sol}\PYG{o}{.}\PYG{n}{u}\PYG{p}{)[}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{n}{doubling\PYGZus{}time}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{α}
+\PYG{n}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{Аналитическое время удвоения: \PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{round}\PYG{p}{(}\PYG{n}{doubling\PYGZus{}time}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{digits}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{))}
+\PYG{c}{\PYGZsh{} Сохранение всех результатов}
+\PYG{n+nd}{@save}\PYG{+w}{ }\PYG{n}{datadir}\PYG{p}{(}\PYG{n}{script\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}all\PYGZus{}results.jld2\PYGZdq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{df}
+\end{MintedVerbatim}

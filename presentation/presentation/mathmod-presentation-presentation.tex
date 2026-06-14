@@ -1,0 +1,553 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+  aspectratio=169,
+  russian,
+]{beamer}
+\newif\ifbibliography
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T2A]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+
+\usetheme[progressbar=frametitle,sectionpage=progressbar,numbering=fraction]{metropolis}
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[Ligatures=TeX]{PT Serif}
+  \setsansfont[Ligatures=TeX,Scale=MatchLowercase]{PT Sans}
+  \setmonofont[Scale=MatchLowercase,Scale=0.9]{PT Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,provide=*]{babel}
+\else
+\usepackage[bidi=default,provide=*]{babel}
+\fi
+\ifPDFTeX
+\else
+\babelfont{rm}[Ligatures=TeX]{PT Serif}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Содержание}
+\else
+  \newcommand\contentsname{Содержание}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Список иллюстраций}
+\else
+  \newcommand\listfigurename{Список иллюстраций}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Список таблиц}
+\else
+  \newcommand\listtablename{Список таблиц}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Рисунок}
+\else
+  \newcommand\figurename{Рисунок}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Таблица}
+\else
+  \newcommand\tablename{Таблица}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Список}
+\newcommand*\listoflistings{\listof{codelisting}{Листинги}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Доклад},
+  pdfauthor={Калашникова О. С., НПИбд-01-23},
+  pdflang={ru-RU},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Доклад}
+\subtitle{Зависимость от пути}
+\author{Калашникова О. С., НПИбд-01-23}
+\date{2026-04-17}
+
+\begin{document}
+\frame{\titlepage}
+
+\renewcommand*\contentsname{Содержание}
+\begin{frame}[allowframebreaks]
+  \frametitle{Содержание}
+  \setcounter{tocdepth}{2}
+  \tableofcontents
+\end{frame}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\section{1. Вводная
+часть}\label{ux432ux432ux43eux434ux43dux430ux44f-ux447ux430ux441ux442ux44c}
+
+\begin{frame}{1.1 Вводная часть}
+\phantomsection\label{ux432ux432ux43eux434ux43dux430ux44f-ux447ux430ux441ux442ux44c-1}
+\begin{columns}[T]
+\begin{column}{0.6\linewidth}
+\textbf{Актуальность и проблема:}
+
+\begin{itemize}
+\tightlist
+\item
+  Классика: будущее зависит только от настоящего (марковское свойство)
+\item
+  Реальность: небольшое случайное событие может закрепиться и определить
+  исход
+\item
+  Пример: клавиатура QWERTY (хуже, но победила из-за случайности)
+\end{itemize}
+
+\textbf{Главная опасность:} классические эргодические методы дают
+неверные прогнозы для таких систем
+\end{column}
+
+\begin{column}{0.3\linewidth}
+\textbf{Объект исследования:}
+
+Модифицированная урновая модель с зависимостью от всей предыдущей
+истории
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{1.2 Вводная часть}
+\phantomsection\label{ux432ux432ux43eux434ux43dux430ux44f-ux447ux430ux441ux442ux44c-2}
+\begin{columns}[T]
+\begin{column}{0.3\linewidth}
+\textbf{Цель:}
+
+Раскрыть понятие path dependence и его математическую формализацию через
+урновую модель
+\end{column}
+
+\begin{column}{0.4\linewidth}
+\textbf{Задачи:}
+
+\begin{itemize}
+\tightlist
+\item
+  Описать модель и параметры
+\item
+  Разобрать частные случаи (α = 0, малое α, большое α)
+\item
+  Показать применение (фильтрация сетей)
+\item
+  Сравнить с альтернативами
+\end{itemize}
+\end{column}
+
+\begin{column}{0.2\linewidth}
+\textbf{Методы:}
+
+Математическое моделирование, теория вероятностей
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{1.3 Введение --- пример QWERTY}
+\phantomsection\label{ux432ux432ux435ux434ux435ux43dux438ux435-ux43fux440ux438ux43cux435ux440-qwerty}
+\begin{columns}[T]
+\begin{column}{0.6\linewidth}
+\textbf{Клавиатура QWERTY (1870-е):} - Создана для ЗАМЕДЛЕНИЯ печати
+(чтобы не залипали рычажки) - Появилась более удобная раскладка Dvorak
+
+\textbf{Почему QWERTY всё ещё с нами?} - Миллионы людей уже выучили -
+Производители выпускали только QWERTY - Рыночные преимущества у
+доминирующей раскладки
+
+\textbf{Исход определила историческая случайность, а не качество!}
+\end{column}
+
+\begin{column}{0.3\linewidth}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{image/qwerty.jpg}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{2. Базовая
+модель}\label{ux431ux430ux437ux43eux432ux430ux44f-ux43cux43eux434ux435ux43bux44c}
+
+\begin{frame}{2.1 Урновая модель --- основные понятия}
+\phantomsection\label{ux443ux440ux43dux43eux432ux430ux44f-ux43cux43eux434ux435ux43bux44c-ux43eux441ux43dux43eux432ux43dux44bux435-ux43fux43eux43dux44fux442ux438ux44f}
+\begin{columns}[T]
+\begin{column}{0.5\linewidth}
+\textbf{Что у нас есть:} - n = 0, 1, 2, \ldots{} (дискретное время) - a
+белых, b чёрных шаров (начально) - Xk = 1 (белый) или 0 (чёрный) - Hn =
+(X1, \ldots, Xn) --- вся история - Sn = сумма белых за всю историю
+\end{column}
+
+\begin{column}{0.5\linewidth}
+\textbf{Правила (классика Пойя):} 1. Вынуть шар пропорционально
+количеству 2. Вернуть обратно 3. Добавить c шаров ТОГО ЖЕ цвета
+
+\textbf{Классическая формула:} P = (a + c·Sn) / (a + b + c·n)
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{2.2 Что меняем?}
+\phantomsection\label{ux447ux442ux43e-ux43cux435ux43dux44fux435ux43c}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\textbf{В классике:} вероятность зависит только от Sn (сколько белых
+всего), порядок не важен
+
+\textbf{Нам нужно:} чтобы порядок извлечений имел значение!
+
+\textbf{Решение:} добавляем в формулу явный член памяти
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{3. Формула и
+параметры}\label{ux444ux43eux440ux43cux443ux43bux430-ux438-ux43fux430ux440ux430ux43cux435ux442ux440ux44b}
+
+\begin{frame}{3.1 Главная формула}
+\phantomsection\label{ux433ux43bux430ux432ux43dux430ux44f-ux444ux43eux440ux43cux443ux43bux430}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+{[} P(X\_\{n+1\}=1 \mid H\_n) =
+\frac{W_n + \alpha \cdot S_n + \delta}{W_n + B_n + \beta \cdot n + \gamma}
+{]}
+
+\textbf{Упрощённая форма (c=1, β=1, δ=γ=0):}
+
+{[} P = \frac{a + (1+\alpha)S_n}{a+b+n+\alpha S_n} {]}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{3.2 Параметры модели}
+\phantomsection\label{ux43fux430ux440ux430ux43cux435ux442ux440ux44b-ux43cux43eux434ux435ux43bux438}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Параметр & Что делает & Ключевое \\
+\midrule\noalign{}
+\endhead
+\textbf{α ≥ 0} & Сила памяти (главный!) & α=0 → классика, α\textgreater0
+→ память \\
+β ≥ 0 & Как быстро забываем & β\textgreater1 → память затухает \\
+δ, γ & Сглаживание (для малых n) & Убирают нулевые вероятности \\
+c & Масштаб добавления & Обычно c=1 \\
+\bottomrule\noalign{}
+\end{longtable}
+
+\textbf{α --- наш главный инструмент управления зависимостью от пути}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{4. Частные
+случаи}\label{ux447ux430ux441ux442ux43dux44bux435-ux441ux43bux443ux447ux430ux438}
+
+\begin{frame}{4.1 α = 0 --- классическая модель Пойя}
+\phantomsection\label{ux3b1-0-ux43aux43bux430ux441ux441ux438ux447ux435ux441ux43aux430ux44f-ux43cux43eux434ux435ux43bux44c-ux43fux43eux439ux44f}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+{[} P = \frac{a + S_n}{a+b+n} {]}
+
+\begin{itemize}
+\tightlist
+\item
+  Вероятность зависит только от счёта Sn (порядок НЕ важен)
+\item
+  Mn = (a+Sn)/(a+b+n) --- мартингал
+\item
+  Предел: Beta(a,b)
+\item
+  Нет необратимой фиксации
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{4.2 Малое α \textgreater{} 0 --- «мягкая» память}
+\phantomsection\label{ux43cux430ux43bux43eux435-ux3b1-0-ux43cux44fux433ux43aux430ux44f-ux43fux430ux43cux44fux442ux44c}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\textbf{Эффекты:} - Начальное поведение --- почти как у классики - Со
+временем дисперсия растёт - Вероятность уйти к 0 или 1 повышается (но
+медленно)
+
+\textbf{Пример:} α = 0.1, n=100--1000
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{4.3 Большое α --- жёсткая фиксация}
+\phantomsection\label{ux431ux43eux43bux44cux448ux43eux435-ux3b1-ux436ux451ux441ux442ux43aux430ux44f-ux444ux438ux43aux441ux430ux446ux438ux44f}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\textbf{Эффекты:} - α·Sn доминирует уже при небольших n - Начальные
+флуктуации катастрофически усиливаются - Высокая вероятность фиксации: -
+M\_n → 1 (все белые) - M\_n → 0 (все чёрные)
+
+\textbf{Пример:} α = 10, первые 5--10 шагов определяют всё
+
+\textbf{Это и есть механизм QWERTY!}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{5. Применение: фильтрация
+сетей}\label{ux43fux440ux438ux43cux435ux43dux435ux43dux438ux435-ux444ux438ux43bux44cux442ux440ux430ux446ux438ux44f-ux441ux435ux442ux435ux439}
+
+\begin{frame}{5.1 Задача и урновая аналогия}
+\phantomsection\label{ux437ux430ux434ux430ux447ux430-ux438-ux443ux440ux43dux43eux432ux430ux44f-ux430ux43dux430ux43bux43eux433ux438ux44f}
+\begin{columns}[T]
+\begin{column}{0.5\linewidth}
+\textbf{Задача:} - Есть узел сети (степень k, сила s, вес связи w) -
+Значима ли связь или случайна?
+\end{column}
+
+\begin{column}{0.5\linewidth}
+\textbf{Урновая аналогия:} - 1 красный шар (анализируемая связь) - k-1
+чёрных (остальные связи) - s извлечений - Модель Пойя →
+бета-биномиальное распределение
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{5.2 Связь с path dependence}
+\phantomsection\label{ux441ux432ux44fux437ux44c-ux441-path-dependence}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\textbf{Три ключевых свойства:}
+
+\begin{enumerate}
+\tightlist
+\item
+  \textbf{Положительная обратная связь} --- вынули красный → красных
+  стало больше
+\item
+  \textbf{Немарковость} --- один и тот же состав может быть достигнут
+  разными путями
+\item
+  \textbf{Фиксация} --- случайная связь может стать доминирующей
+\end{enumerate}
+
+\textbf{Параметр a в этой модели = аналог α}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{6. Сравнение
+подходов}\label{ux441ux440ux430ux432ux43dux435ux43dux438ux435-ux43fux43eux434ux445ux43eux434ux43eux432}
+
+\begin{frame}{6.1 Альтернативы --- кратко}
+\phantomsection\label{ux430ux43bux44cux442ux435ux440ux43dux430ux442ux438ux432ux44b-ux43aux440ux430ux442ux43aux43e}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2963}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2593}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Подход
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Суть
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Плюс
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Минус
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\textbf{Урновая (наш)} & α·Sn в числителе & Прозрачно, параметр памяти &
+Параметры феноменологичны \\
+\textbf{Пороговая} & Фиксация после порога θ & Просто & Порог надо знать
+заранее \\
+\textbf{RL (кумулятивная)} & P \textasciitilde{} exp(β·Q) & Гибкая &
+Сложный анализ \\
+\bottomrule\noalign{}
+\end{longtable}
+
+\textbf{Наш подход --- оптимальный баланс простоты и выразительности}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{7. Ограничения}\label{ux43eux433ux440ux430ux43dux438ux447ux435ux43dux438ux44f}
+
+\begin{frame}{7.1 Что модель НЕ умеет}
+\phantomsection\label{ux447ux442ux43e-ux43cux43eux434ux435ux43bux44c-ux43dux435-ux443ux43cux435ux435ux442}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Дискретное время} → не для непрерывных процессов
+\item
+  \textbf{Феноменологические параметры} → не выводятся из первых
+  принципов
+\item
+  \textbf{Нет антагонизма} → нет активного подавления конкурента
+\item
+  \textbf{Нужна полная история} → в реальности данные часто неполные
+\item
+  \textbf{Требуются длинные данные} → при n \textless{} 50 выводы
+  ненадёжны
+\end{itemize}
+
+\textbf{Но:} в своих границах модель работает отлично!
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{8. Выводы}\label{ux432ux44bux432ux43eux434ux44b}
+
+\begin{frame}{8.1 Выводы}
+\phantomsection\label{ux432ux44bux432ux43eux434ux44b-1}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\begin{enumerate}
+\item
+  \textbf{Path dependence ≠ марковский процесс}
+\item
+  \textbf{Модифицированная урна с α·Sn} --- простая и мощная
+  формализация
+\item
+  \textbf{α = 0} → классика (нет памяти) \textbf{α \textgreater{} 0
+  малое} → мягкая память \textbf{α большое} → жёсткая фиксация (QWERTY)
+\item
+  \textbf{Реальное применение:} фильтрация сетей, экономика, социология
+\item
+  \textbf{Важно:} помнить об ограничениях модели
+\end{enumerate}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{8.2 Итоговая мысль}
+\phantomsection\label{ux438ux442ux43eux433ux43eux432ux430ux44f-ux43cux44bux441ux43bux44c}
+\begin{columns}[T]
+\begin{column}{1\linewidth}
+\begin{quote}
+Классические эргодические методы усредняют по траекториям и могут
+ошибаться. Среднее не соответствует ни одной реальной траектории.
+\end{quote}
+
+\textbf{Понимание path dependence --- ключ к корректному моделированию
+сложных систем.}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+
+
+\end{document}
