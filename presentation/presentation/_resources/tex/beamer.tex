@@ -7,6 +7,17 @@
 }{
   %% TinyTeX
   \usepackage{libertine}
+  \usepackage{fontspec}
+
+% Настраиваем шрифты с поддержкой кириллицы
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
+% Дополнительно для корректного переноса слов на русском в LuaLaTeX
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
 }
 
 %%% Load theme

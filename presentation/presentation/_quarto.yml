@@ -1,6 +1,7 @@
 project:
   title: "presentation"
-  output-dir: "_presentation"
+  output-dir: "_output"
 
 standalone: true
 self-contained: true
+
